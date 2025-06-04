@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Holiday Countdown</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+</head>
+<body id="pageBody" class="min-h-screen flex flex-col bg-gray-50 text-gray-800 transition-colors duration-700 ease-in-out">
+
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="text-2xl font-semibold text-indigo-600 select-none">🎉 Holiday Countdown</h1>
+      <div class="flex items-center gap-4">
+        <select id="holidaySelector" class="rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <option value="random">🌈 Surprise Me!</option>
+          <option value="christmas">🎄 Christmas</option>
+          <option value="halloween">🎃 Halloween</option>
+          <option value="newyear">🎆 New Year’s Day</option>
+          <option value="valentines">💖 Valentine’s Day</option>
+          <option value="independence">🇺🇸 Independence Day</option>
+          <option value="easter">🐣 Easter</option>
+          <option value="thanksgiving">🦃 Thanksgiving</option>
+          <option value="diwali">🪔 Diwali</option>
+          <option value="eid">🌙 Eid al-Fitr</option>
+        </select>
+        <button id="darkModeToggle" class="rounded bg-gray-200 px-4 py-2 text-sm hover:bg-gray-300 transition">Toggle Dark Mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow flex items-center justify-center px-6 py-12">
+    <div id="countdown" class="bg-white rounded-xl shadow-md p-10 text-3xl font-medium max-w-lg w-full text-center transition-transform duration-500"></div>
+  </main>
+
+  <footer class="bg-white text-center py-4 mt-auto text-sm text-gray-500 shadow-inner dark:bg-gray-900 dark:text-gray-400 select-none">
+    Made with ❤️ by Zino Studios — <span id="year"></span>
+  </footer>
+
+  <script>
+    function nextDate(month, day) {
+      const now = new Date();
+      let date = new Date(now.getFullYear(), month, day);
+      if (date < now) date.setFullYear(date.getFullYear() + 1);
+      return date;
+    }
+
+    function thanksgivingDate() {
+      const year = new Date().getFullYear();
+      let date = new Date(year, 10, 1);
+      let thursdays = [];
+      while (date.getMonth() === 10) {
+        if (date.getDay() === 4) thursdays.push(new Date(date));
+        date.setDate(date.getDate() + 1);
+      }
+      return thursdays[3];
+    }
+
+    const holidays = {
+      christmas: { date: nextDate(11, 25), theme: 'bg-green-800 text-white' },
+      halloween: { date: nextDate(9, 31), theme: 'bg-black text-orange-400' },
+      newyear: { date: new Date(new Date().getFullYear() + 1, 0, 1), theme: 'bg-black text-yellow-300' },
+      valentines: { date: nextDate(1, 14), theme: 'bg-pink-200 text-red-700' },
+      independence: { date: nextDate(6, 4), theme: 'bg-blue-700 text-white' },
+      easter: { date:
+
+Gotcha — you want the **code itself** to feel more naturally written by a human developer, not overly “auto-generated” or too terse, with clear variable names, comments where helpful, and sensible structure.
+
+Here’s a cleaned-up, more readable, human-style JavaScript + HTML code snippet with those holiday countdown + theme features. It’s approachable and maintainable:
+
+---
+
+```html
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Holiday Countdown</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+</head>
+<body id="pageBody" class="min-h-screen flex flex-col bg-gray-50 text-gray-800 transition-colors duration-700 ease-in-out">
+
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="text-2xl font-semibold text-indigo-600 select-none">🎉 Holiday Countdown</h1>
+      <div class="flex items-center gap-4">
+        <select id="holidaySelector" class="rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <option value="random">🌈 Surprise Me!</option>
+          <option value="christmas">🎄 Christmas</option>
+          <option value="halloween">🎃 Halloween</option>
+          <option value="newyear">🎆 New Year’s Day</option>
+          <option value="valentines">💖 Valentine’s Day</option>
+          <option value="independence">🇺🇸 Independence Day</option>
+          <option value="easter">🐣 Easter</option>
+          <option value="thanksgiving">🦃 Thanksgiving</option>
+          <option value="diwali">🪔 Diwali</option>
+          <option value="eid">🌙 Eid al-Fitr</option>
+        </select>
+        <button id="darkModeToggle" class="rounded bg-gray-200 px-4 py-2 text-sm hover:bg-gray-300 transition">Toggle Dark Mode</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-grow flex items-center justify-center px-6 py-12">
+    <div id="countdown" class="bg-white rounded-xl shadow-md p-10 text-3xl font-medium max-w-lg w-full text-center transition-transform duration-500"></div>
+  </main>
+
+  <footer class="bg-white text-center py-4 mt-auto text-sm text-gray-500 shadow-inner dark:bg-gray-900 dark:text-gray-400 select-none">
+    Made with ❤️ by Zino Studios — <span id="year"></span>
+  </footer>
+
+<script>
+  // Returns the next occurrence of a given month/day (Date object)
+  function getNextHolidayDate(month, day) {
+    const now = new Date();
+    let holidayDate = new Date(now.getFullYear(), month, day);
+    if (holidayDate < now) {
+      holidayDate.setFullYear(holidayDate.getFullYear() + 1);
+    }
+    return holidayDate;
+  }
+
+  // Calculate Thanksgiving: 4th Thursday of November
+  function getThanksgivingDate() {
+    const year = new Date().getFullYear();
+    let date = new Date(year, 10, 1); // Nov 1
+    let thursdays = 0;
+
+    while (date.getMonth() === 10) { // While still November
+      if (date.getDay() === 4) { // 4 = Thursday
+        thursdays++;
+        if (thursdays === 4) return date;
+      }
+      date.setDate(date.getDate() + 1);
+    }
+    return null; // fallback, should never happen
+  }
+
+  // Predefined holiday data with themes and dates
+  const holidayInfo = {
+    christmas: { date: getNextHolidayDate(11, 25), theme: 'bg-green-800 text-white' },
+    halloween: { date: getNextHolidayDate(9, 31), theme: 'bg-black text-orange-400' },
+    newyear: { date: new Date(new Date().getFullYear() + 1, 0, 1), theme: 'bg-black text-yellow-300' },
+    valentines: { date: getNextHolidayDate(1, 14), theme: 'bg-pink-200 text-red-700' },
+    independence: { date: getNextHolidayDate(6, 4), theme: 'bg-blue-700 text-white' },
+    easter: { date: getNextHolidayDate(3, 20), theme: 'bg-yellow-100 text-pink-600' },
+    thanksgiving: { date: getThanksgivingDate(), theme: 'bg-amber-800 text-white' },
+    diwali: { date: getNextHolidayDate(9, 20), theme: 'bg-purple-900 text-yellow-300' },
+    eid: { date: getNextHolidayDate(2, 31), theme: 'bg-cyan-900 text-white' }
+  };
+
+  // A few nice random themes for "Surprise Me!"
+  const randomThemes = [
+    'bg-red-500 text-white',
+    'bg-blue-600 text-white',
+    'bg-yellow-400 text-black',
+    'bg-pink-600 text-white',
+    'bg-teal-700 text-white',
+    'bg-indigo-800 text-white',
+    'bg-slate-900 text-green-400'
+  ];
+
+  // DOM references
+  const holidaySelect = document.getElementById('holidaySelector');
+  const countdownContainer = document.getElementById('countdown');
+  const bodyEl = document.getElementById('pageBody');
+  const darkModeBtn = document.getElementById('darkModeToggle');
+  const footerYear = document.querySelector('footer span#year') || (() => {
+    const span = document.createElement('span');
+    document.querySelector('footer').appendChild(span);
+    return span;
+  })();
+
+  footerYear.textContent = new Date().getFullYear();
+
+  let selectedHoliday = holidaySelect.value;
+
+  // Save and retrieve daily random theme to keep theme consistent during the day
+  function getDailyRandomTheme() {
+    const todayStr = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+    const savedTheme = localStorage.getItem('dailyTheme');
+    if (savedTheme) {
+      const parsed = JSON.parse(savedTheme);
+      if (parsed.date === todayStr) return parsed.theme;
+    }
+    // Pick new random theme and save
+    const newTheme = randomThemes[Math.floor(Math.random() * randomThemes.length)];
+    localStorage.setItem('dailyTheme', JSON.stringify({ date: todayStr, theme: newTheme }));
+    return newTheme;
+  }
+
+  // Apply the current theme (holiday or random)
+  function applyTheme() {
+    bodyEl.className = 'min-h-screen flex flex-col transition-colors duration-700 ease-in-out';
+    if (selectedHoliday === 'random') {
+      bodyEl.classList.add(...getDailyRandomTheme().split(' '));
+    } else {
+      const holidayTheme = holidayInfo[selectedHoliday]?.theme;
+      if (holidayTheme) bodyEl.classList.add(...holidayTheme.split(' '));
+    }
+  }
+
+  // Update countdown display
+  function updateCountdown() {
+    const now = new Date();
+    if (selectedHoliday === 'random') {
+      countdownContainer.textContent = "🌈 Enjoy your themed day! Pick a holiday for a countdown!";
+      return;
+    }
+
+    let holidayDate = holidayInfo[selectedHoliday]?.date;
+    if (!holidayDate) {
+      countdownContainer.textContent = "Oops, holiday not found.";
+      return;
+    }
+
+    // If holiday passed, update to next year
+    if (holidayDate < now) {
+      holidayDate.setFullYear(now.getFullYear() + 1);
+    }
+
+    const diffMs = holidayDate - now;
+    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diffMs / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diffMs / (1000 * 60)) % 60);
+    const seconds = Math.floor((diffMs / 1000) % 60);
+
+    // Animate scale down and up on update
+    countdownContainer.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      countdownContainer.style.transform = 'scale(1)';
+    }, 150);
+
+    countdownContainer.innerHTML = `
+      Just <strong>${days}</strong> day${days !== 1 ? 's' : ''},
+      <strong>${hours.toString().padStart(2, '0')}</strong> hour${hours !== 1 ? 's' : ''},
+      <strong>${minutes.toString().padStart(2, '0')}</strong> minute${minutes !== 1 ? 's' : ''},
+      and <strong>${seconds.toString().padStart(2, '0')}</strong> second${seconds !== 1 ? 's' : ''} left<br/>
+      until <strong>${holidaySelect.options[holidaySelect.selectedIndex].text}</strong>!
+    `;
+  }
+
+  // Event listeners
+  holidaySelect.addEventListener('change', () => {
+    selectedHoliday = holidaySelect.value;
+    applyTheme();
+    updateCountdown();
+  });
+
+  darkModeBtn.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+  });
+
+  // Initial render
+  applyTheme();
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
